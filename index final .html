@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building 812 — Study Guide</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMiIgZmlsbD0iI2M4YTg0YiIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcng9IjEwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxYTI1NDAiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHRleHQgeD0iMzIiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+ODEyPC90ZXh0PgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJPT01TPC90ZXh0PgogIDx0ZXh0IHg9IjMyIiB5PSI0OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlRSQUlOSU5HPC90ZXh0PgogIDxwb2x5Z29uIHBvaW50cz0iMzIsNTIgMzMuMiw1NiAzNy41LDU2IDM0LjIsNTguNCAzNS40LDYyIDMyLDU5LjcgMjguNiw2MiAyOS44LDU4LjQgMjYuNSw1NiAzMC44LDU2IiBmaWxsPSIjMWEyNTQwIi8+Cjwvc3ZnPg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxMiIgZmlsbD0iI2M4YTg0YiIvPgogIDxyZWN0IHg9IjIiIHk9IjIiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcng9IjEwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxYTI1NDAiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHRleHQgeD0iMzIiIHk9IjIyIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIxOCIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+ODEyPC90ZXh0PgogIDx0ZXh0IHg9IjMyIiB5PSIzOCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlJPT01TPC90ZXh0PgogIDx0ZXh0IHg9IjMyIiB5PSI0OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZmlsbD0iIzFhMjU0MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9IjIiPlRSQUlOSU5HPC90ZXh0PgogIDxwb2x5Z29uIHBvaW50cz0iMzIsNTIgMzMuMiw1NiAzNy41LDU2IDM0LjIsNTguNCAzNS40LDYyIDMyLDU5LjcgMjguNiw2MiAyOS44LDU4LjQgMjYuNSw1NiAzMC44LDU2IiBmaWxsPSIjMWEyNTQwIi8+Cjwvc3ZnPg==">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Georgia,serif;background:#f8f5ef;color:#1a1a1a;min-height:100vh;}
+.hdr{background:#1a2540;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.hdr-title{font-size:1.3rem;font-weight:700;color:#e8d5a3;}
+.hdr-sub{font-size:0.7rem;color:#c8a84b;margin-top:2px;letter-spacing:0.08em;text-transform:uppercase;}
+.lang-wrap{display:flex;gap:6px;}
+.lang-btn{padding:5px 14px;border-radius:20px;border:1.5px solid #c8a84b;background:transparent;color:#c8a84b;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:Georgia,serif;}
+.lang-btn.on{background:#c8a84b;color:#1a2540;}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e0ddd6;padding:0 1rem;overflow-x:auto;}
+.tab{padding:0.85rem 1rem;border:none;background:transparent;font-family:Georgia,serif;font-size:0.82rem;font-weight:400;color:#777;cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-2px;white-space:nowrap;}
+.tab.on{color:#1a2540;border-bottom-color:#c8a84b;font-weight:700;}
+.main{max-width:1000px;margin:0 auto;padding:1.5rem;}
+.screen{display:none;}
+.screen.on{display:block;}
+.rules{background:#1a2540;border-radius:10px;padding:0.9rem 1.2rem;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:6px;}
+.rule{font-size:0.8rem;color:#e8d5a3;padding-left:14px;position:relative;line-height:1.4;}
+.rule::before{content:'•';position:absolute;left:0;color:#c8a84b;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;margin-bottom:2rem;}
+.tcard{border-radius:12px;padding:1.1rem;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;border:2px solid transparent;position:relative;}
+.tcard:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.tcard-top{height:4px;border-radius:12px 12px 0 0;position:absolute;top:0;left:0;right:0;}
+.tcard-name{font-size:1.05rem;font-weight:700;margin-bottom:3px;margin-top:6px;}
+.tcard-beds{font-size:0.75rem;margin-bottom:8px;opacity:0.85;}
+.tcard-code{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.72rem;font-weight:700;letter-spacing:0.07em;color:#fff;}
+.tcard-pos{font-size:0.7rem;margin-top:7px;opacity:0.75;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(26,37,64,0.65);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay.on{display:flex;}
+.modal{background:#fff;border-radius:14px;padding:1.75rem;max-width:440px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,0.3);position:relative;animation:pop 0.18s ease;max-height:90vh;overflow-y:auto;}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-close{position:absolute;top:0.9rem;right:0.9rem;width:28px;height:28px;border-radius:50%;border:1px solid #ddd;background:transparent;cursor:pointer;font-size:0.95rem;display:flex;align-items:center;justify-content:center;color:#777;}
+.modal-name{font-size:1.6rem;font-weight:700;margin-bottom:5px;}
+.modal-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:#fff;margin-bottom:1.1rem;}
+.drow{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #f0ede6;font-size:0.875rem;}
+.drow:last-of-type{border-bottom:none;}
+.dlbl{color:#666;flex-shrink:0;}
+.dval{font-weight:600;text-align:right;}
+.dtip{margin-top:0.9rem;padding:0.7rem 0.9rem;border-radius:8px;font-size:0.82rem;border-left:3px solid;line-height:1.5;}
+.floor-sel{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.fbtn{padding:6px 14px;border-radius:20px;border:1.5px solid #ddd;background:#fff;font-family:Georgia,serif;font-size:0.8rem;cursor:pointer;color:#666;transition:all 0.15s;}
+.fbtn.hi{border-color:#c8a84b;}
+.fbtn.on{background:#1a2540;color:#e8d5a3;border-color:#1a2540;}
+.fbtn.hi.on{background:#c8a84b;color:#1a2540;border-color:#c8a84b;}
+.fnote{background:#1a2540;color:#e8d5a3;padding:0.55rem 1rem;border-radius:8px;font-size:0.78rem;margin-bottom:1rem;}
+.corridor{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;}
+.rcard{flex:0 0 108px;border-radius:10px;padding:0.8rem 0.6rem;text-align:center;color:#fff;cursor:pointer;transition:transform 0.15s;position:relative;}
+.rcard:hover{transform:translateY(-3px);}
+
+.rnum{font-size:1rem;font-weight:700;margin-bottom:3px;}
+.rtype{font-size:0.62rem;opacity:0.9;margin-bottom:3px;line-height:1.3;}
+.rmarsha{font-size:0.72rem;font-weight:700;letter-spacing:0.05em;}
+.rbeds{font-size:0.62rem;opacity:0.8;margin-top:2px;}
+.rbadges{display:flex;gap:3px;justify-content:center;margin-top:4px;flex-wrap:wrap;}
+.rbadge{font-size:0.55rem;padding:1px 5px;border-radius:8px;background:rgba(255,255,255,0.25);color:#fff;font-weight:700;}
+.qwrap{max-width:580px;margin:0 auto;}
+.qprog{height:4px;border-radius:2px;background:#e0ddd6;margin-bottom:1.75rem;overflow:hidden;}
+.qprog-fill{height:4px;border-radius:2px;background:#c8a84b;transition:width 0.35s;}
+.qmeta{display:flex;justify-content:space-between;font-size:0.8rem;color:#777;margin-bottom:0.9rem;align-items:center;}
+.qscore{background:#1a2540;color:#e8d5a3;padding:2px 10px;border-radius:20px;font-size:0.75rem;font-weight:600;}
+.qlevel{display:flex;gap:6px;margin-bottom:1rem;}
+.qlvlbtn{padding:5px 14px;border-radius:20px;border:1.5px solid #ddd;background:#fff;font-family:Georgia,serif;font-size:0.78rem;cursor:pointer;color:#666;}
+.qlvlbtn.on{background:#1a2540;color:#e8d5a3;border-color:#1a2540;}
+.qbox{background:#fff;border-radius:10px;padding:1.25rem;font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:1.1rem;border-left:4px solid #c8a84b;box-shadow:0 2px 8px rgba(0,0,0,0.06);line-height:1.5;}
+.qopts{display:flex;flex-direction:column;gap:8px;}
+.qopt{padding:0.85rem 1.1rem;border-radius:9px;border:1.5px solid #ddd;background:#fff;font-family:Georgia,serif;font-size:0.88rem;font-weight:400;cursor:pointer;text-align:left;transition:all 0.12s;color:#1a1a1a;}
+.qopt:hover:not(:disabled){border-color:#1a2540;background:#f2f0eb;}
+.qopt.ok{background:#e8f5e9;border-color:#2E7D32;color:#1B5E20;}
+.qopt.no{background:#fce4e4;border-color:#c62828;color:#7f1010;}
+.qfb{margin-top:0.9rem;font-size:0.88rem;font-weight:600;min-height:22px;}
+.result{text-align:center;padding:3rem 0;animation:pop 0.3s ease;}
+.big-score{font-size:4.5rem;font-weight:700;color:#1a2540;line-height:1;}
+.res-msg{font-size:0.95rem;color:#666;margin:0.6rem 0 1.75rem;}
+.btnp{padding:0.7rem 1.75rem;border-radius:22px;border:none;background:#1a2540;color:#e8d5a3;font-family:Georgia,serif;font-size:0.88rem;font-weight:700;cursor:pointer;margin:0 5px;}
+.btns{padding:0.7rem 1.75rem;border-radius:22px;border:1.5px solid #1a2540;background:transparent;color:#1a2540;font-family:Georgia,serif;font-size:0.88rem;font-weight:700;cursor:pointer;margin:0 5px;}
+.slbl{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:0.6rem;}
+.intro{font-size:0.88rem;color:#666;margin-bottom:1.25rem;}
+
+/* Advanced section */
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem;}
+.adv-card{background:#fff;border-radius:12px;padding:1.25rem;border:1.5px solid #e0ddd6;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.adv-card-title{font-size:0.95rem;font-weight:700;color:#1a2540;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #c8a84b;display:flex;align-items:center;gap:8px;}
+.adv-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f0ede6;font-size:0.82rem;}
+.adv-row:last-child{border-bottom:none;}
+.adv-label{color:#555;}
+.adv-val{font-weight:600;color:#1a2540;text-align:right;}
+.badge-yes{display:inline-block;background:#e8f5e9;color:#2E7D32;padding:2px 8px;border-radius:10px;font-size:0.72rem;font-weight:700;}
+.badge-no{display:inline-block;background:#f5f5f5;color:#999;padding:2px 8px;border-radius:10px;font-size:0.72rem;}
+.badge-ada{display:inline-block;background:#fce4e4;color:#c62828;padding:2px 8px;border-radius:10px;font-size:0.72rem;font-weight:700;}
+.badge-con{display:inline-block;background:#E3F2FD;color:#1565C0;padding:2px 8px;border-radius:10px;font-size:0.72rem;font-weight:700;}
+.adv-section{margin-bottom:1.5rem;}
+.adv-section-title{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:0.75rem;}
+.ada-room{background:#fff;border-radius:10px;padding:0.9rem 1rem;border:1.5px solid #e0ddd6;margin-bottom:8px;}
+.ada-room-num{font-size:1.1rem;font-weight:700;}
+.ada-room-type{font-size:0.78rem;color:#666;margin-top:2px;}
+.ada-badges{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+.con-item{background:#fff;border-radius:10px;padding:0.9rem 1rem;border:1.5px solid #E3F2FD;margin-bottom:8px;}
+.con-floor{font-size:0.72rem;font-weight:700;color:#1565C0;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+.con-rooms{font-size:0.88rem;font-weight:700;color:#1a2540;}
+.con-note{font-size:0.75rem;color:#666;margin-top:3px;}
+
+.welcome-overlay{position:fixed;inset:0;background:rgba(26,37,64,0.85);z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.welcome-box{background:#1a2540;border-radius:18px;max-width:360px;width:100%;overflow:hidden;animation:pop 0.2s ease;}
+.welcome-hdr{background:#c8a84b;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;}
+.welcome-hdr-title{font-family:Georgia,serif;font-size:14px;font-weight:700;color:#1a2540;}
+.welcome-body{padding:20px 18px;}
+.welcome-icon{background:#c8a84b;width:48px;height:48px;border-radius:10px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;}
+.welcome-title{font-family:Georgia,serif;font-size:16px;font-weight:700;color:#e8d5a3;text-align:center;}
+.welcome-sub{font-size:11px;color:#c8a84b;text-align:center;margin-top:2px;margin-bottom:16px;}
+.welcome-steps{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.welcome-step{background:#ffffff12;border-radius:10px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start;}
+.welcome-num{background:#c8a84b;border-radius:6px;width:24px;height:24px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:11px;font-weight:700;color:#1a2540;}
+.welcome-step-title{font-size:12px;font-weight:700;color:#e8d5a3;}
+.welcome-step-desc{font-size:10px;color:#c8a84b;margin-top:2px;line-height:1.4;}
+.welcome-btn{width:100%;background:#c8a84b;color:#1a2540;border:none;border-radius:22px;padding:11px;font-family:Georgia,serif;font-size:13px;font-weight:700;cursor:pointer;}
+.help-btn{background:transparent;border:1.5px solid #c8a84b;color:#c8a84b;border-radius:50%;width:28px;height:28px;font-family:Georgia,serif;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+</style>
+</head>
+<body>
+
+
+<div id="welcome-overlay" class="welcome-overlay">
+  <div class="welcome-box">
+    <div class="welcome-hdr">
+      <span class="welcome-hdr-title">Building 812</span>
+      <div style="display:flex;gap:5px;">
+        <button class="lang-btn on" onclick="setLang('en');event.stopPropagation()">EN</button>
+        <button class="lang-btn" onclick="setLang('es');event.stopPropagation()">ES</button>
+      </div>
+    </div>
+    <div class="welcome-body">
+      <div class="welcome-icon">
+        <span style="font-family:Georgia,serif;font-size:18px;font-weight:700;color:#1a2540;">812</span>
+      </div>
+      <div class="welcome-title" id="w-title">Welcome!</div>
+      <div class="welcome-sub" id="w-sub">How to use this app</div>
+      <div class="welcome-steps">
+        <div class="welcome-step">
+          <div class="welcome-num">1</div>
+          <div><div class="welcome-step-title" id="w-s1t">Room Types</div><div class="welcome-step-desc" id="w-s1d">Start here. Tap any card to see name, MARSHA code and beds.</div></div>
+        </div>
+        <div class="welcome-step">
+          <div class="welcome-num">2</div>
+          <div><div class="welcome-step-title" id="w-s2t">Walk the Floor</div><div class="welcome-step-desc" id="w-s2d">Select a floor and walk each room in corridor order.</div></div>
+        </div>
+        <div class="welcome-step">
+          <div class="welcome-num">3</div>
+          <div><div class="welcome-step-title" id="w-s3t">Quiz</div><div class="welcome-step-desc" id="w-s3d">Test yourself. Choose Basic or Advanced level.</div></div>
+        </div>
+        <div class="welcome-step">
+          <div class="welcome-num">4</div>
+          <div><div class="welcome-step-title" id="w-s4t">Advanced</div><div class="welcome-step-desc" id="w-s4d">Amenities, ADA rooms and connecting rooms.</div></div>
+        </div>
+      </div>
+      <button class="welcome-btn" id="w-btn" onclick="closeWelcome()">Got it, let's start →</button>
+    </div>
+  </div>
+</div>
+
+<div class="hdr">
+  <div>
+    <div class="hdr-title">Building 812</div>
+    <div class="hdr-sub">JW Marriott Houston Downtown</div>
+  </div>
+  <button class="help-btn" onclick="showWelcome()" title="How to use">?</button>
+  <div class="lang-wrap">
+    <button class="lang-btn on" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" id="tab-cards" onclick="show('cards')" data-en="Room Types" data-es="Tipos de Cuarto">Room Types</button>
+  <button class="tab" id="tab-walk" onclick="show('walk')" data-en="Walk the Floor" data-es="Caminar el Piso">Walk the Floor</button>
+  <button class="tab" id="tab-quiz" onclick="show('quiz')" data-en="Quiz" data-es="Quiz">Quiz</button>
+  <button class="tab" id="tab-adv" onclick="show('adv')" data-en="Advanced" data-es="Avanzado">Advanced</button>
+</div>
+
+<div class="main">
+
+  <!-- CARDS -->
+  <div class="screen on" id="screen-cards">
+    <p class="intro" id="ci">Tap any card to see full details.</p>
+    <div class="rules" id="rules-box"></div>
+    <div class="slbl" id="lbl5">5 Room Types</div>
+    <div class="cards-grid" id="cgrid"></div>
+  </div>
+
+  <!-- WALK -->
+  <div class="screen" id="screen-walk">
+    <p class="intro" id="wi">Select a floor and walk each room as if you are in the corridor.</p>
+    <div class="floor-sel" id="fsel"></div>
+    <div class="fnote" id="fnote"></div>
+    <div class="slbl" id="lblcor">← Corridor →</div>
+    <div class="corridor" id="corridor"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="screen" id="screen-quiz">
+    <div class="qwrap">
+      <div class="qlevel" id="qlevel"></div>
+      <div id="qarea"></div>
+    </div>
+  </div>
+
+  <!-- ADVANCED -->
+  <div class="screen" id="screen-adv">
+    <p class="intro" id="advi">Tap a room card in Walk the Floor to see full details. This section covers amenities, ADA rooms, and connecting rooms.</p>
+
+    <!-- Amenities -->
+    <div class="adv-section">
+      <div class="adv-section-title" id="adv-lbl-amen">Amenities by Room Type</div>
+      <div class="adv-grid" id="adv-amen-grid"></div>
+    </div>
+
+    <!-- ADA -->
+    <div class="adv-section">
+      <div class="adv-section-title" id="adv-lbl-ada">ADA Rooms</div>
+      <div id="adv-ada-grid"></div>
+    </div>
+
+    <!-- Connectors -->
+    <div class="adv-section">
+      <div class="adv-section-title" id="adv-lbl-con">Connecting Rooms</div>
+      <div id="adv-con-grid"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="overlay" onclick="maybeClose(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="mcontent"></div>
+  </div>
+</div>
+
+<script>
+var L='en';
+var CMAP={'Griffin King':'#1565C0','Griffin Double Queen':'#6A1B9A','Sable Suite':'#2E7D32','Curator Suite':'#E65100','Atelier Suite':'#B71C1C'};
+var POSITIONS=['x21','x22','x23','x24','x25','x26','x27'];
+
+var FLOORS={
+  3: [[321,'Curator Suite',false],[322,'Sable Suite',false],[323,'Sable Suite',false],[324,'Curator Suite',false],[325,'Griffin Double Queen',false],[326,'Griffin King',false],[327,'Griffin King',false]],
+  4: [[421,'Atelier Suite',false],[422,'Sable Suite',false],[423,'Sable Suite',false],[424,'Curator Suite',false],[425,'Griffin Double Queen',false],[426,'Griffin King',false],[427,'Griffin Double Queen',false]],
+  5: [[521,'Atelier Suite',false],[522,'Sable Suite',false],[523,'Sable Suite',false],[524,'Curator Suite',false],[525,'Griffin Double Queen',false],[526,'Griffin King',false],[527,'Griffin King',false]],
+  6: [[621,'Atelier Suite',false],[622,'Sable Suite',false],[623,'Sable Suite',false],[624,'Curator Suite',false],[625,'Griffin Double Queen',false],[626,'Griffin King',false],[627,'Griffin Double Queen',false]],
+  7: [[721,'Atelier Suite',true],[722,'Sable Suite',true],[723,'Sable Suite',true],[724,'Curator Suite',true],[725,'Griffin Double Queen',true],[726,'Griffin King',true],[727,'Griffin King',true]],
+  8: [[821,'Atelier Suite',true],[822,'Sable Suite',true],[823,'Sable Suite',true],[824,'Curator Suite',true],[825,'Griffin Double Queen',true],[826,'Griffin King',true],[827,'Griffin Double Queen',true]],
+  9: [[921,'Atelier Suite',true],[922,'Sable Suite',true],[923,'Sable Suite',true],[924,'Curator Suite',true],[925,'Griffin Double Queen',true],[926,'Griffin King',true],[927,'Griffin King',true]],
+  10:[[1021,'Curator Suite',true],[1022,'Sable Suite',true],[1023,'Sable Suite',true],[1024,'Curator Suite',true],[1025,'Griffin Double Queen',true],[1026,'Griffin King',true],[1027,'Griffin Double Queen',true]]
+};
+
+// ADA rooms confirmed from CAD plans and Excel
+var ADA_ROOMS={
+  en:[
+    {num:323, type:'Sable Suite',  code:'OZZY', floor:3,  badges:['ADA Mobility']},
+    {num:324, type:'Curator Suite',code:'LUXS', floor:3,  badges:['ADA Hearing']},
+    {num:421, type:'Atelier Suite',code:'PENT', floor:4,  badges:['ADA Mobility','ADA Hearing']},
+    {num:427, type:'Griffin DQ',   code:'QNQN', floor:4,  badges:['ADA Mobility']},
+    {num:1026,type:'Griffin King', code:'VIEW', floor:10, badges:['ADA Mobility']},
+    {num:1027,type:'Griffin DQ',   code:'DTWN', floor:10, badges:['ADA Hearing']},
+  ],
+  es:[
+    {num:323, type:'Sable Suite',  code:'OZZY', floor:3,  badges:['ADA Movilidad']},
+    {num:324, type:'Curator Suite',code:'LUXS', floor:3,  badges:['ADA Auditivo']},
+    {num:421, type:'Atelier Suite',code:'PENT', floor:4,  badges:['ADA Movilidad','ADA Auditivo']},
+    {num:427, type:'Griffin DQ',   code:'QNQN', floor:4,  badges:['ADA Movilidad']},
+    {num:1026,type:'Griffin King', code:'VIEW', floor:10, badges:['ADA Movilidad']},
+    {num:1027,type:'Griffin DQ',   code:'DTWN', floor:10, badges:['ADA Auditivo']},
+  ]
+};
+
+// Connecting rooms confirmed from CAD floors 6 & 8
+var CONNECTORS={
+  en:[
+    {floor:6, rooms:'626 ↔ 627', note:'Griffin King connects to Griffin Double Queen'},
+    {floor:8, rooms:'826 ↔ 827', note:'Griffin King connects to Griffin Double Queen'},
+  ],
+  es:[
+    {floor:6, rooms:'626 ↔ 627', note:'Griffin King conecta con Griffin Double Queen'},
+    {floor:8, rooms:'826 ↔ 827', note:'Griffin King conecta con Griffin Double Queen'},
+  ]
+};
+
+var DATA={
+  en:{
+    ci:'Tap any card to see full details.',
+    wi:'Select a floor and walk each room as if you are in the corridor.',
+    advi:'Advanced details: amenities by room type, ADA rooms, and connecting rooms.',
+    lbl5:'5 Room Types', lblcor:'← Corridor →',
+    flbl:'Floor', high:'HIGH FLOOR', low:'Low Floor',
+    beds:'Beds', pos:'Position', marsha:'MARSHA Code', tip:'Tip',
+    advLblAmen:'Amenities by Room Type',
+    advLblAda:'ADA Rooms',
+    advLblCon:'Connecting Rooms',
+    rules:['x27 ODD floors (3,5,7,9) = Griffin King','x27 EVEN floors (4,6,8,10) = Griffin Double Queen','x21 floors 3 & 10 = Curator Suite','x21 floors 4–9 = Atelier Suite','High Floor starts at Floor 7  (King=VIEW / DQ=DTWN)'],
+    fnotes:{3:'Low Floor  |  x21=Curator  |  x27=King',4:'Low Floor  |  x21=Atelier  |  x27=DQ (even)',5:'Low Floor  |  x21=Atelier  |  x27=King (odd)',6:'Low Floor  |  x21=Atelier  |  x27=DQ (even)',7:'HIGH FLOOR starts here  |  King=VIEW  DQ=DTWN  |  x27=King (odd)',8:'HIGH FLOOR  |  King=VIEW  DQ=DTWN  |  x27=DQ (even)',9:'HIGH FLOOR  |  King=VIEW  DQ=DTWN  |  x27=King (odd)',10:'HIGH FLOOR  |  x21=Curator again  |  x27=DQ (even)'},
+    types:[
+      {name:'Griffin King',        beds:'1 King',   code:'KGKG / VIEW', pos:'x26 and x27',             tip:'Smallest room. Always at end of corridor. Low=KGKG / High=VIEW.',
+       amen:{soaking:false, builtinTub:'Some rooms',sleeperSofa:false,sofa:'Yes',liquid:'Yes (x26, x27 floors 5–10)'}},
+      {name:'Griffin Double Queen',beds:'2 Queens', code:'QNQN / DTWN', pos:'x25',                      tip:'The ONLY room with 2 beds. Always x25. Low=QNQN / High=DTWN.',
+       amen:{soaking:false, builtinTub:false,       sleeperSofa:false,sofa:'Some',liquid:'Only room 1027'}},
+      {name:'Sable Suite',         beds:'1 King',   code:'OZZY',         pos:'x22 and x23',              tip:'OZZY never changes. Always has a built-in tub in the bathroom.',
+       amen:{soaking:false, builtinTub:true,        sleeperSofa:true, sofa:false,liquid:'Only floors 3 (322, 323)'}},
+      {name:'Curator Suite',       beds:'1 King',   code:'LUXS',         pos:'x21 (floors 3 & 10), x24', tip:'LUXS = Luxury Suite. Has a standalone soaking tub. Code never changes.',
+       amen:{soaking:true,  builtinTub:false,       sleeperSofa:true, sofa:false,liquid:'Only floors 3 (321, 324)'}},
+      {name:'Atelier Suite',       beds:'1 King',   code:'PENT',         pos:'x21 only (floors 4–9)',     tip:'PENT = Penthouse. Largest suite. Floor 4 ADA has roll-in shower instead of tub.',
+       amen:{soaking:'Yes (except floor 4 ADA)',builtinTub:false,sleeperSofa:true,sofa:false,liquid:false}},
+    ],
+    amenLabels:{soaking:'Soaking Tub',builtinTub:'Built-in Tub',sleeperSofa:'Sleeper Sofa',sofa:'Sofa',liquid:'Liquid Windows'},
+    qlvls:['Basic','Advanced'],
+    qsBasic:[
+      {q:'What is the MARSHA code for Sable Suite?',a:'OZZY',o:['KGKG','OZZY','LUXS','PENT']},
+      {q:'What is the MARSHA code for Atelier Suite?',a:'PENT',o:['LUXS','DTWN','OZZY','PENT']},
+      {q:'What is the MARSHA code for Curator Suite?',a:'LUXS',o:['LUXS','OZZY','PENT','VIEW']},
+      {q:'You see "OZZY" in the system. What room is it?',a:'Sable Suite',o:['Griffin King','Curator Suite','Sable Suite','Atelier Suite']},
+      {q:'You see "PENT" in the system. What room is it?',a:'Atelier Suite',o:['Curator Suite','Griffin King','Sable Suite','Atelier Suite']},
+      {q:'You see "LUXS" in the system. What room is it?',a:'Curator Suite',o:['Sable Suite','Atelier Suite','Curator Suite','Griffin King']},
+      {q:'Which is the ONLY room type with 2 beds?',a:'Griffin Double Queen',o:['Griffin King','Sable Suite','Griffin Double Queen','Atelier Suite']},
+      {q:'Griffin King on a high floor — what is the MARSHA code?',a:'VIEW',o:['KGKG','VIEW','DTWN','PENT']},
+      {q:'Griffin Double Queen on a low floor — what code?',a:'QNQN',o:['KGKG','QNQN','DTWN','VIEW']},
+      {q:'Room 827 — Griffin King or Griffin Double Queen?',a:'Griffin Double Queen',o:['Griffin King','Griffin Double Queen','Sable Suite','Curator Suite']},
+      {q:'Room 927 — what type and MARSHA code?',a:'Griffin King — VIEW',o:['Griffin Double Queen — DTWN','Griffin King — KGKG','Sable Suite — OZZY','Griffin King — VIEW']},
+      {q:'What type is always at x21 on floors 4–9?',a:'Atelier Suite',o:['Curator Suite','Sable Suite','Griffin King','Atelier Suite']}
+    ],
+    qsAdvanced:[
+      {q:'Which room type always has a soaking tub (standalone)?',a:'Curator Suite',o:['Sable Suite','Atelier Suite','Curator Suite','Griffin King']},
+      {q:'Which room type always has a built-in tub integrated in the bathroom?',a:'Sable Suite',o:['Sable Suite','Curator Suite','Atelier Suite','Griffin King']},
+      {q:'Which room types have a sleeper sofa?',a:'Sable Suite, Curator Suite, Atelier Suite',o:['Griffin King, Griffin DQ','Sable Suite, Curator Suite, Atelier Suite','All room types','Only Atelier Suite']},
+      {q:'Liquid windows are found in which positions?',a:'x26 and x27 (floors 5–10)',o:['x21 and x22 only','x26 and x27 (floors 5–10)','All rooms on floor 7 and above','x25 only']},
+      {q:'How many ADA rooms are in Building 812?',a:'6',o:['4','5','6','8']},
+      {q:'Which floor has the only ADA Atelier Suite?',a:'Floor 4 (room 421)',o:['Floor 3','Floor 4 (room 421)','Floor 7','Floor 10']},
+      {q:'Which floors have connecting rooms?',a:'Floors 6 and 8',o:['Floors 3 and 4','Floors 6 and 8','Floors 7 and 9','Floors 5 and 10']},
+      {q:'Which rooms connect on floor 6?',a:'626 ↔ 627',o:['622 ↔ 623','624 ↔ 625','626 ↔ 627','621 ↔ 622']},
+      {q:'Room 323 — what ADA type is it?',a:'ADA Mobility',o:['ADA Hearing','ADA Mobility','Both Mobility and Hearing','Not ADA']},
+      {q:'Room 421 — what makes it unique among Atelier Suites?',a:'ADA Mobility + Hearing, roll-in shower',o:['It has a soaking tub','ADA Mobility + Hearing, roll-in shower','It has liquid windows','It is the largest room']},
+      {q:'Which room types have liquid windows on floor 3 only?',a:'Curator Suite (321, 324) and Sable Suite (322, 323)',o:['Only Griffin King','Curator Suite (321, 324) and Sable Suite (322, 323)','Only Atelier Suite','All rooms on floor 3']},
+      {q:'Griffin King rooms on floors 5–10 at x26 and x27 have what special feature?',a:'Liquid Windows',o:['Soaking tub','Connecting doors','Liquid Windows','Sleeper sofa']},
+    ],
+    correct:'Correct ✓', wrong:'Incorrect. Answer: ', perfect:"Perfect! You've got it.", great:"Great. One more round and it's yours.", keep:'Review and try again.',
+    retry:'Try Again', back:'Back to Cards', qof:'of',
+    floorLbl:'Floor'
+  },
+  es:{
+    ci:'Toca cualquier tarjeta para ver los detalles.',
+    wi:'Selecciona un piso y camina cada cuarto como si estuvieras en el pasillo.',
+    advi:'Detalles avanzados: amenidades por tipo de cuarto, cuartos ADA y cuartos conectores.',
+    lbl5:'5 Tipos de Cuarto', lblcor:'← Pasillo →',
+    flbl:'Piso', high:'PISO ALTO', low:'Piso Bajo',
+    beds:'Camas', pos:'Posición', marsha:'Código MARSHA', tip:'Truco',
+    advLblAmen:'Amenidades por Tipo de Cuarto',
+    advLblAda:'Cuartos ADA',
+    advLblCon:'Cuartos Conectores',
+    rules:['x27 pisos IMPARES (3,5,7,9) = Griffin King','x27 pisos PARES (4,6,8,10) = Griffin Double Queen','x21 pisos 3 y 10 = Curator Suite','x21 pisos 4 al 9 = Atelier Suite','Piso alto empieza en Piso 7  (King=VIEW / DQ=DTWN)'],
+    fnotes:{3:'Piso Bajo  |  x21=Curator  |  x27=King',4:'Piso Bajo  |  x21=Atelier  |  x27=DQ (par)',5:'Piso Bajo  |  x21=Atelier  |  x27=King (impar)',6:'Piso Bajo  |  x21=Atelier  |  x27=DQ (par)',7:'PISO ALTO empieza aquí  |  King=VIEW  DQ=DTWN  |  x27=King (impar)',8:'PISO ALTO  |  King=VIEW  DQ=DTWN  |  x27=DQ (par)',9:'PISO ALTO  |  King=VIEW  DQ=DTWN  |  x27=King (impar)',10:'PISO ALTO  |  x21=Curator otra vez  |  x27=DQ (par)'},
+    types:[
+      {name:'Griffin King',        beds:'1 King',   code:'KGKG / VIEW', pos:'x26 y x27',                 tip:'El más pequeño. Siempre al final del pasillo. Piso bajo=KGKG / Piso alto=VIEW.',
+       amen:{soaking:false, builtinTub:'Algunos cuartos',sleeperSofa:false,sofa:'Sí',liquid:'Sí (x26, x27 pisos 5–10)'}},
+      {name:'Griffin Double Queen',beds:'2 Queens', code:'QNQN / DTWN', pos:'x25',                        tip:'El ÚNICO con 2 camas. Siempre x25. Piso bajo=QNQN / Piso alto=DTWN.',
+       amen:{soaking:false, builtinTub:false,       sleeperSofa:false,sofa:'Algunos',liquid:'Solo cuarto 1027'}},
+      {name:'Sable Suite',         beds:'1 King',   code:'OZZY',         pos:'x22 y x23',                 tip:'OZZY nunca cambia. Siempre tiene tina integrada al baño.',
+       amen:{soaking:false, builtinTub:true,        sleeperSofa:true, sofa:false,liquid:'Solo piso 3 (322, 323)'}},
+      {name:'Curator Suite',       beds:'1 King',   code:'LUXS',         pos:'x21 (pisos 3 y 10), x24',   tip:'LUXS = Luxury Suite. Bañera independiente tipo spa. El código nunca cambia.',
+       amen:{soaking:true,  builtinTub:false,       sleeperSofa:true, sofa:false,liquid:'Solo piso 3 (321, 324)'}},
+      {name:'Atelier Suite',       beds:'1 King',   code:'PENT',         pos:'x21 solo (pisos 4–9)',       tip:'PENT = Penthouse. La más grande. Piso 4 ADA tiene ducha tipo roll-in en vez de tina.',
+       amen:{soaking:'Sí (excepto piso 4 ADA)',builtinTub:false,sleeperSofa:true,sofa:false,liquid:false}},
+    ],
+    amenLabels:{soaking:'Soaking Tub',builtinTub:'Tina Integrada',sleeperSofa:'Sleeper Sofa',sofa:'Sofá',liquid:'Liquid Windows'},
+    qlvls:['Básico','Avanzado'],
+    qsBasic:[
+      {q:'¿Cuál es el código MARSHA de la Sable Suite?',a:'OZZY',o:['KGKG','OZZY','LUXS','PENT']},
+      {q:'¿Cuál es el código MARSHA de la Atelier Suite?',a:'PENT',o:['LUXS','DTWN','OZZY','PENT']},
+      {q:'¿Cuál es el código MARSHA de la Curator Suite?',a:'LUXS',o:['LUXS','OZZY','PENT','VIEW']},
+      {q:'Ves "OZZY" en el sistema. ¿Qué cuarto es?',a:'Sable Suite',o:['Griffin King','Curator Suite','Sable Suite','Atelier Suite']},
+      {q:'Ves "PENT" en el sistema. ¿Qué cuarto es?',a:'Atelier Suite',o:['Curator Suite','Griffin King','Sable Suite','Atelier Suite']},
+      {q:'Ves "LUXS" en el sistema. ¿Qué cuarto es?',a:'Curator Suite',o:['Sable Suite','Atelier Suite','Curator Suite','Griffin King']},
+      {q:'¿Cuál es el único tipo con 2 camas?',a:'Griffin Double Queen',o:['Griffin King','Sable Suite','Griffin Double Queen','Atelier Suite']},
+      {q:'Griffin King en piso alto — ¿cuál es el código MARSHA?',a:'VIEW',o:['KGKG','VIEW','DTWN','PENT']},
+      {q:'Griffin Double Queen en piso bajo — ¿cuál es el código?',a:'QNQN',o:['KGKG','QNQN','DTWN','VIEW']},
+      {q:'Cuarto 827 — ¿Griffin King o Griffin Double Queen?',a:'Griffin Double Queen',o:['Griffin King','Griffin Double Queen','Sable Suite','Curator Suite']},
+      {q:'Cuarto 927 — ¿qué tipo y código MARSHA?',a:'Griffin King — VIEW',o:['Griffin Double Queen — DTWN','Griffin King — KGKG','Sable Suite — OZZY','Griffin King — VIEW']},
+      {q:'¿Qué tipo está siempre en x21 en pisos 4 al 9?',a:'Atelier Suite',o:['Curator Suite','Sable Suite','Griffin King','Atelier Suite']}
+    ],
+    qsAdvanced:[
+      {q:'¿Qué tipo de cuarto tiene siempre soaking tub (bañera independiente)?',a:'Curator Suite',o:['Sable Suite','Atelier Suite','Curator Suite','Griffin King']},
+      {q:'¿Qué tipo tiene siempre tina integrada al baño?',a:'Sable Suite',o:['Sable Suite','Curator Suite','Atelier Suite','Griffin King']},
+      {q:'¿Qué tipos de cuarto tienen sleeper sofa?',a:'Sable Suite, Curator Suite, Atelier Suite',o:['Griffin King, Griffin DQ','Sable Suite, Curator Suite, Atelier Suite','Todos los tipos','Solo Atelier Suite']},
+      {q:'Las Liquid Windows se encuentran en qué posiciones?',a:'x26 y x27 (pisos 5–10)',o:['Solo x21 y x22','x26 y x27 (pisos 5–10)','Todos los cuartos piso 7 en adelante','Solo x25']},
+      {q:'¿Cuántos cuartos ADA tiene el edificio 812?',a:'6',o:['4','5','6','8']},
+      {q:'¿En qué piso está la única Atelier Suite ADA?',a:'Piso 4 (cuarto 421)',o:['Piso 3','Piso 4 (cuarto 421)','Piso 7','Piso 10']},
+      {q:'¿En qué pisos hay cuartos conectores?',a:'Pisos 6 y 8',o:['Pisos 3 y 4','Pisos 6 y 8','Pisos 7 y 9','Pisos 5 y 10']},
+      {q:'¿Qué cuartos conectan en el piso 6?',a:'626 ↔ 627',o:['622 ↔ 623','624 ↔ 625','626 ↔ 627','621 ↔ 622']},
+      {q:'Cuarto 323 — ¿qué tipo ADA es?',a:'ADA Movilidad',o:['ADA Auditivo','ADA Movilidad','Movilidad y Auditivo','No es ADA']},
+      {q:'Cuarto 421 — ¿qué lo hace único entre las Atelier Suites?',a:'ADA Movilidad + Auditivo, ducha roll-in',o:['Tiene soaking tub','ADA Movilidad + Auditivo, ducha roll-in','Tiene liquid windows','Es el cuarto más grande']},
+      {q:'¿Qué tipos tienen liquid windows solo en piso 3?',a:'Curator Suite (321, 324) y Sable Suite (322, 323)',o:['Solo Griffin King','Curator Suite (321, 324) y Sable Suite (322, 323)','Solo Atelier Suite','Todos los cuartos del piso 3']},
+      {q:'Los Griffin King en x26 y x27 pisos 5–10 tienen qué característica especial?',a:'Liquid Windows',o:['Soaking tub','Puertas conectoras','Liquid Windows','Sleeper sofa']},
+    ],
+    correct:'Correcto ✓', wrong:'Incorrecto. Era: ', perfect:'¡Perfecto! Ya los tienes.', great:'Muy bien. Una vuelta más y los tienes.', keep:'Repasa e inténtalo de nuevo.',
+    retry:'Repetir', back:'Ver Tarjetas', qof:'de',
+    floorLbl:'Piso'
+  }
+};
+
+function mcode(t,hf){return t==='Griffin King'?(hf?'VIEW':'KGKG'):t==='Griffin Double Queen'?(hf?'DTWN':'QNQN'):t==='Sable Suite'?'OZZY':t==='Curator Suite'?'LUXS':'PENT';}
+function mbeds(t){return t==='Griffin Double Queen'?'2Q':'1K';}
+function amenBadge(v){
+  if(v===false||v===null)return '<span class="badge-no">No</span>';
+  if(v===true)return '<span class="badge-yes">Yes</span>';
+  return '<span class="badge-yes">'+v+'</span>';
+}
+function amenBadgeEs(v){
+  if(v===false||v===null)return '<span class="badge-no">No</span>';
+  if(v===true)return '<span class="badge-yes">Sí</span>';
+  return '<span class="badge-yes">'+v+'</span>';
+}
+
+var cfloor=3, qi=0, score=0, answered=false, qlevel='Basic';
+
+function setLang(l){
+  updateWelcomeTexts(l);
+  L=l;
+  document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('on',b.textContent===l.toUpperCase());});
+  document.querySelectorAll('.tab').forEach(function(b){if(b.dataset[l])b.textContent=b.dataset[l];});
+  var d=DATA[l];
+  document.getElementById('ci').textContent=d.ci;
+  document.getElementById('wi').textContent=d.wi;
+  document.getElementById('advi').textContent=d.advi;
+  document.getElementById('lbl5').textContent=d.lbl5;
+  document.getElementById('lblcor').textContent=d.lblcor;
+  document.getElementById('adv-lbl-amen').textContent=d.advLblAmen;
+  document.getElementById('adv-lbl-ada').textContent=d.advLblAda;
+  document.getElementById('adv-lbl-con').textContent=d.advLblCon;
+  renderRules(); renderCards(); renderFsel(); renderCorridor(cfloor);
+  renderAdvanced();
+  var qs=document.getElementById('screen-quiz');
+  if(qs.classList.contains('on')){qi=0;score=0;answered=false;renderQLevel();renderQ();}
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
+  document.getElementById('screen-'+id).classList.add('on');
+  document.getElementById('tab-'+id).classList.add('on');
+  if(id==='quiz'){qi=0;score=0;answered=false;renderQLevel();renderQ();}
+  if(id==='adv'){renderAdvanced();}
+}
+
+function renderRules(){
+  var d=DATA[L];
+  document.getElementById('rules-box').innerHTML=d.rules.map(function(r){return '<div class="rule">'+r+'</div>';}).join('');
+}
+
+function renderCards(){
+  var d=DATA[L];
+  var g=document.getElementById('cgrid');
+  g.innerHTML='';
+  d.types.forEach(function(t){
+    var c=CMAP[t.name];
+    var el=document.createElement('div');
+    el.className='tcard';
+    el.style.background=c+'15';
+    el.style.borderColor=c+'35';
+    el.innerHTML='<div class="tcard-top" style="background:'+c+'"></div>'
+      +'<div class="tcard-name" style="color:'+c+'">'+t.name+'</div>'
+      +'<div class="tcard-beds" style="color:'+c+'">'+t.beds+'</div>'
+      +'<div class="tcard-code" style="background:'+c+'">'+t.code+'</div>'
+      +'<div class="tcard-pos" style="color:'+c+'">'+t.pos+'</div>';
+    el.onclick=(function(tn){return function(){openModal(tn);};})(t.name);
+    g.appendChild(el);
+  });
+}
+
+function openModal(name){
+  var d=DATA[L];
+  var t=d.types.find(function(x){return x.name===name;});
+  var c=CMAP[name];
+  var isEs=L==='es';
+  var ab=isEs?amenBadgeEs:amenBadge;
+  var al=d.amenLabels;
+  document.getElementById('mcontent').innerHTML=
+    '<div class="modal-name" style="color:'+c+'">'+t.name+'</div>'
+    +'<div class="modal-badge" style="background:'+c+'">'+t.code+'</div>'
+    +'<div class="drow"><span class="dlbl">'+d.beds+'</span><span class="dval">'+t.beds+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+d.marsha+'</span><span class="dval">'+t.code+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+d.pos+'</span><span class="dval">'+t.pos+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+al.soaking+'</span><span class="dval">'+ab(t.amen.soaking)+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+al.builtinTub+'</span><span class="dval">'+ab(t.amen.builtinTub)+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+al.sleeperSofa+'</span><span class="dval">'+ab(t.amen.sleeperSofa)+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+al.sofa+'</span><span class="dval">'+ab(t.amen.sofa)+'</span></div>'
+    +'<div class="drow"><span class="dlbl">'+al.liquid+'</span><span class="dval">'+ab(t.amen.liquid)+'</span></div>'
+    +'<div class="dtip" style="background:'+c+'12;border-color:'+c+'"><strong>'+d.tip+':</strong> '+t.tip+'</div>';
+  document.getElementById('overlay').classList.add('on');
+}
+
+function maybeClose(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function closeModal(){document.getElementById('overlay').classList.remove('on');}
+
+function renderFsel(){
+  var d=DATA[L];
+  var s=document.getElementById('fsel');
+  s.innerHTML='';
+  for(var f=3;f<=10;f++){
+    var hf=f>=7;
+    var b=document.createElement('button');
+    b.className='fbtn'+(hf?' hi':'')+(f===cfloor?' on':'');
+    b.textContent=d.flbl+' '+f+(hf?' ★':'');
+    b.onclick=(function(ff){return function(){cfloor=ff;renderFsel();renderCorridor(ff);};})(f);
+    s.appendChild(b);
+  }
+}
+
+function renderCorridor(fl){
+  var d=DATA[L];
+  var hf=fl>=7;
+  document.getElementById('fnote').textContent=(hf?d.high:d.low)+'  —  '+d.fnotes[fl];
+  var cor=document.getElementById('corridor');
+  cor.innerHTML='';
+  FLOORS[fl].forEach(function(r,i){
+    var rnum=r[0],rtype=r[1],rhf=r[2];
+    var c=CMAP[rtype];
+    var marsha=mcode(rtype,rhf);
+    // Find badges for this room
+    var adaList=ADA_ROOMS[L];
+    var adaRoom=adaList.find(function(a){return a.num===rnum;});
+    var badges='';
+    if(adaRoom) adaRoom.badges.forEach(function(b){badges+='<span class="rbadge">'+b+'</span>';});
+    // Connector badge
+    var isCon=(fl===6||fl===8)&&(rnum%100===26||rnum%100===27);
+    if(isCon) badges+='<span class="rbadge">CON</span>';
+    var el=document.createElement('div');
+    el.className='rcard';
+    el.style.background=c;
+    el.innerHTML='<div class="rpos">'+POSITIONS[i]+'</div>'
+      +'<div class="rnum">'+rnum+'</div>'
+      +'<div class="rtype">'+rtype.replace('Griffin ','').replace(' Suite','')+'</div>'
+      +'<div class="rmarsha">'+marsha+'</div>'
+      +'<div class="rbeds">'+mbeds(rtype)+'</div>'
+      +(badges?'<div class="rbadges">'+badges+'</div>':'');
+    el.onclick=(function(rt){return function(){openModal(rt);};})(rtype);
+    cor.appendChild(el);
+  });
+}
+
+function renderAdvanced(){
+  var d=DATA[L];
+  var isEs=L==='es';
+  var ab=isEs?amenBadgeEs:amenBadge;
+  var al=d.amenLabels;
+
+  // Amenities grid
+  var ag=document.getElementById('adv-amen-grid');
+  ag.innerHTML='';
+  d.types.forEach(function(t){
+    var c=CMAP[t.name];
+    var html='<div class="adv-card">'
+      +'<div class="adv-card-title"><span style="width:10px;height:10px;border-radius:50%;background:'+c+';display:inline-block;flex-shrink:0;"></span>'+t.name+'</div>'
+      +'<div class="adv-row"><span class="adv-label">'+al.soaking+'</span><span class="adv-val">'+ab(t.amen.soaking)+'</span></div>'
+      +'<div class="adv-row"><span class="adv-label">'+al.builtinTub+'</span><span class="adv-val">'+ab(t.amen.builtinTub)+'</span></div>'
+      +'<div class="adv-row"><span class="adv-label">'+al.sleeperSofa+'</span><span class="adv-val">'+ab(t.amen.sleeperSofa)+'</span></div>'
+      +'<div class="adv-row"><span class="adv-label">'+al.sofa+'</span><span class="adv-val">'+ab(t.amen.sofa)+'</span></div>'
+      +'<div class="adv-row"><span class="adv-label">'+al.liquid+'</span><span class="adv-val">'+ab(t.amen.liquid)+'</span></div>'
+      +'</div>';
+    ag.innerHTML+=html;
+  });
+
+  // ADA grid
+  var adg=document.getElementById('adv-ada-grid');
+  adg.innerHTML='';
+  var adaList=ADA_ROOMS[L];
+  adaList.forEach(function(a){
+    var c=CMAP[a.type.indexOf('Atelier')>-1?'Atelier Suite':a.type.indexOf('Sable')>-1?'Sable Suite':a.type.indexOf('Curator')>-1?'Curator Suite':a.type.indexOf('DQ')>-1?'Griffin Double Queen':'Griffin King'];
+    var flbl=isEs?'Piso':'Floor';
+    var html='<div class="ada-room">'
+      +'<div style="display:flex;justify-content:space-between;align-items:center;">'
+      +'<div><div class="ada-room-num" style="color:'+c+'">'+a.num+'</div>'
+      +'<div class="ada-room-type">'+a.type+' · '+a.code+' · '+flbl+' '+a.floor+'</div></div>'
+      +'<div class="ada-badges">'+a.badges.map(function(b){return '<span class="badge-ada">'+b+'</span>';}).join('')+'</div>'
+      +'</div></div>';
+    adg.innerHTML+=html;
+  });
+
+  // Connectors
+  var cg=document.getElementById('adv-con-grid');
+  cg.innerHTML='';
+  var conList=CONNECTORS[L];
+  var flbl2=isEs?'Piso':'Floor';
+  conList.forEach(function(con){
+    cg.innerHTML+='<div class="con-item">'
+      +'<div class="con-floor">'+flbl2+' '+con.floor+'</div>'
+      +'<div class="con-rooms">'+con.rooms+'</div>'
+      +'<div class="con-note">'+con.note+'</div>'
+      +'</div>';
+  });
+}
+
+// QUIZ
+function renderQLevel(){
+  var d=DATA[L];
+  var lv=document.getElementById('qlevel');
+  lv.innerHTML='';
+  d.qlvls.forEach(function(lbl,i){
+    var key=i===0?'Basic':'Advanced';
+    var b=document.createElement('button');
+    b.className='qlvlbtn'+(qlevel===key?' on':'');
+    b.textContent=lbl;
+    b.onclick=(function(k){return function(){qlevel=k;qi=0;score=0;answered=false;renderQLevel();renderQ();};})(key);
+    lv.appendChild(b);
+  });
+}
+
+function renderQ(){
+  var d=DATA[L];
+  var qs=qlevel==='Basic'?d.qsBasic:d.qsAdvanced;
+  if(qi>=qs.length){showResult();return;}
+  answered=false;
+  var q=qs[qi];
+  var opts=q.o.slice().sort(function(){return Math.random()-0.5;});
+  var pct=Math.round(qi/qs.length*100);
+  var html='<div class="qprog"><div class="qprog-fill" style="width:'+pct+'%"></div></div>'
+    +'<div class="qmeta"><span>Q '+(qi+1)+' '+d.qof+' '+qs.length+'</span><span class="qscore">'+score+' ✓</span></div>'
+    +'<div class="qbox">'+q.q+'</div>'
+    +'<div class="qopts">';
+  opts.forEach(function(o){
+    html+='<button class="qopt" onclick="pick(this,'+JSON.stringify(o)+','+JSON.stringify(q.a)+')">'+o+'</button>';
+  });
+  html+='</div><div class="qfb" id="qfb"></div>';
+  document.getElementById('qarea').innerHTML=html;
+}
+
+function pick(btn,sel,correct){
+  if(answered)return;
+  answered=true;
+  var d=DATA[L];
+  document.querySelectorAll('.qopt').forEach(function(b){b.disabled=true;});
+  if(sel===correct){
+    btn.classList.add('ok');
+    score++;
+    document.getElementById('qfb').innerHTML='<span style="color:#2E7D32">'+d.correct+'</span>';
+  } else {
+    btn.classList.add('no');
+    document.querySelectorAll('.qopt').forEach(function(b){if(b.textContent===correct)b.classList.add('ok');});
+    document.getElementById('qfb').innerHTML='<span style="color:#c62828">'+d.wrong+'</span><strong>'+correct+'</strong>';
+  }
+  setTimeout(function(){qi++;renderQ();},1700);
+}
+
+function showResult(){
+  var d=DATA[L];
+  var qs=qlevel==='Basic'?d.qsBasic:d.qsAdvanced;
+  var tot=qs.length;
+  var pct=Math.round(score/tot*100);
+  var msg=pct===100?d.perfect:pct>=70?d.great:d.keep;
+  document.getElementById('qarea').innerHTML=
+    '<div class="result">'
+    +'<div class="big-score">'+score+'/'+tot+'</div>'
+    +'<div class="res-msg">'+msg+'</div>'
+    +'<button class="btnp" onclick="qi=0;score=0;answered=false;renderQ()">'+d.retry+' ↗</button>'
+    +'<button class="btns" onclick="show(\'cards\')">'+d.back+'</button>'
+    +'</div>';
+}
+
+
+var WTEXTS={'en': {'title': 'Welcome!', 'sub': 'How to use this app', 's1t': 'Room Types', 's1d': 'Start here. Tap any card to see name, MARSHA code and beds.', 's2t': 'Walk the Floor', 's2d': 'Select a floor and walk each room in corridor order.', 's3t': 'Quiz', 's3d': 'Test yourself. Choose Basic or Advanced level.', 's4t': 'Advanced', 's4d': 'Amenities, ADA rooms and connecting rooms.', 'btn': "Got it, let's start →"}, 'es': {'title': '¡Bienvenido!', 'sub': 'Cómo usar esta app', 's1t': 'Tipos de Cuarto', 's1d': 'Empieza aquí. Toca una tarjeta para ver nombre, código MARSHA y camas.', 's2t': 'Caminar el Piso', 's2d': 'Selecciona un piso y camina cada cuarto en orden de pasillo.', 's3t': 'Quiz', 's3d': 'Ponte a prueba. Escoge nivel Básico o Avanzado.', 's4t': 'Avanzado', 's4d': 'Amenidades, cuartos ADA y cuartos conectores.', 'btn': 'Entendido, empecemos →'}};
+function updateWelcomeTexts(l){
+  var t=WTEXTS[l];
+  if(!t)return;
+  var ids=['title','sub','s1t','s1d','s2t','s2d','s3t','s3d','s4t','s4d','btn'];
+  ids.forEach(function(id){
+    var el=document.getElementById('w-'+id);
+    if(el)el.textContent=t[id];
+  });
+}
+function closeWelcome(){
+  document.getElementById('welcome-overlay').style.display='none';
+  try{localStorage.setItem('812-welcomed','1');}catch(e){}
+}
+function showWelcome(){
+  document.getElementById('welcome-overlay').style.display='flex';
+}
+window.addEventListener('load',function(){
+  try{
+    if(!localStorage.getItem('812-welcomed')){
+      showWelcome();
+    }
+  }catch(e){showWelcome();}
+});
+
+// Init
+renderRules();
+renderCards();
+renderFsel();
+renderCorridor(3);
+renderAdvanced();
+renderQLevel();
+renderQ();
+</script>
+</body>
+</html>
